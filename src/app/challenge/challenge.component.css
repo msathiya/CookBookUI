@@ -1,0 +1,122 @@
+.heading{
+  padding-left: 10px 0  0 25px;
+  font: bold Arial;
+  margin-top: 9px;
+    padding-left: 19px;
+}
+
+
+
+.challenges[_ngcontent-c2] {
+    margin-left: -5px!important;
+    margin-top: -143px;
+}
+.pagination {
+    margin-left: 70% !important
+  }
+
+
+.icon{
+
+  padding: 0 0 5px 491px;
+  cursor:pointer;
+  margin-bottom: 5px;
+
+}
+
+.downicon{
+  padding-left: 97%;
+  margin-top: -59px;
+}
+
+.tags{
+  padding-left: 0px;
+}
+
+.solution{
+  padding-left: 0px;
+}
+.searchicon{
+  height: 17%;
+  margin-left: 24px;
+  margin-top: -1px;
+}
+.noresults{
+      margin-top: -143px;
+}
+.pos{
+  font-size: 100%;
+
+}
+.font{
+  font-size: 2rem !important;
+}
+.display{
+  background-image: "../../assests/search.png";
+  padding-top: 10px;
+  cursor: pointer;
+}
+.listitems{
+  text-decoration: none;
+  display: inline;
+}
+.list{
+  text-decoration: none;
+  display: inline;
+}
+#description
+{
+	    word-wrap: break-word;
+
+      text-align: justify;
+
+}
+.challenges{
+  font-family: -webkit-body;
+font-size: 116%;
+}
+
+#tilepara.hover{
+  cursor: pointer;
+}
+
+.prettyprint {
+    display: block;
+    color: #393318;
+}
+
+.post-text pre, .wmd-preview pre {
+    word-wrap: normal;
+	
+}
+
+pre code {
+	font-size: 1.5rem !important;
+font-weight: 400 !important;
+font-family: open sans !important;
+}
+
+#textFont
+{
+	font-family: open sans;
+}
+.textFont{
+font-size: 1.5rem !important;
+font-weight: 550 !important;
+font-family: open sans !important;	
+}
+#reference_link{
+	font-size: 1.5rem !important;
+font-weight: 400 !important;
+font-family: open sans !important;
+}
+.challengetitle{
+font-size: 2rem !important;
+font-weight: 500 !important;
+font-family: open sans !important;
+}
+#titleFont{
+font-size: 2.5rem;
+font-weight: 600;
+font-family: open sanssemibold;	
+}

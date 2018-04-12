@@ -1,0 +1,155 @@
+<div class="container">
+      <div class="row" style="padding-top:10px;padding-left: 10px;">
+                 <div class="heading col-lg-6" style="margin-top: 9px;padding-left: 19px;">
+                 <h2 id="titleFont">{{title}}</h2>
+                 </div>
+                 <div class="col-lg-6 icon" >
+                   <a [routerLink]="['../uploadchallenge']"  ><img src="assets/Add_icon.png" alt="" /></a>
+                 </div>
+      </div>
+
+<div class="container">
+        <div class="row">
+          <div class="col-lg-11">
+            <!-- #box (keyup.enter)="getChallenges(box.value)" (blur)="getChallenges(box.value)" -->
+            <input  style="width: 109%;"class="form-control font" #box (keyup.enter)="getChallenges(box.value)"  type="text" [(ngModel)]= "value"  name="value" placeholder="Enter text,tag,Description"/>
+          </div>
+          <div class="col-lg-1">
+             <img  style="cursor: pointer" (click)="getChallenges(value)" class="searchicon" src="assets/search.png">
+          </div>
+        </div>
+        <div class="noresults" *ngIf=result>
+          <h4> Enter Some Text </h4>
+        </div>
+        <div class="noresults" *ngIf="!result&&display">
+          <h4> No Results found After Search </h4>
+        </div>
+
+          <!-- <div class="challenges" style="padding-top:10px" *ngIf="!result&&!display">
+       <div class="panel-group" [attr.id]="'accordion_' + i" *ngFor="let challenge of challengeList ; let i = index;" role="tablist" aria-multiselectable="true" style="font-size: 115%;">
+
+               <div class="panel panel-default" >
+               <div class="panel-heading" role="tab">
+                   <h4 class="panel-title">
+                       <a role="button" id="challengetitle" (click) =arrow() data-toggle="collapse" aria-expanded="false" aria-controls="collapseOne" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i"> {{challenge.title}} </a>
+                  <a (click) =arrow() *ngIf=showArrow data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i" ><i class="fa fa-angle-down fa-1x position"></i></a>
+                  <a (click) =arrow() *ngIf=!showArrow data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i" ><i class="fa fa-angle-up  fa-1x position"></i></a>
+                   </h4>
+               </div>
+              <div [attr.id]="'collapseOne_' + i" role="tabpanel" class="container panel-collapse collapse in" >
+                  <div class="panel-body listitems" style="padding-left:10px">
+
+
+
+                      <div class="">
+                        <h4 style="margin-top:6px">
+                          <b id="textFont">Description</b>
+                        </h4>
+                            
+									
+									<pre><code>{{challenge.description}}
+</code></pre>
+                      </div>
+
+				<br />
+        <div class="" *ngIf="challenge?.tags!==''">
+          <span  class="badge pos" id="textFont">{{challenge.tags}}  </span> &nbsp;  <br>
+        </div>
+        <br />
+
+                          <div class="">
+                            <ul class="list" style="text-align:justify;">
+                                <li *ngFor="let solution of challenge.solutionDocuemnt" class="list">
+
+                                  <h4 style="margin-top:-17px">
+                                   <b id="textFont">Solution</b>
+                                  </h4>
+
+                                  
+                                    
+									<pre><code>{{solution.description}}
+									</code></pre>
+                                  
+                                  <div *ngIf="solution?.reference_link!==''">
+                                    <h4>
+                                      <b id="textFont">Reference URL</b>
+                                    </h4>
+                                        <p>  <a href={{solution.reference_link}} id="reference_link" target="_blank">{{solution.reference_link}}</a></p>
+										</div>
+                              </li>
+                            </ul>
+                          </div>
+
+                      </div>
+
+
+                </div>
+       </div>
+
+     </div>
+
+</div> -->
+<div class="challenges" style="padding-top:10px" *ngIf="!result&&!display">
+       <div id="accordion">
+                <div class="card"  style="margin-bottom: 13px; margin-top: -5px;" *ngFor="let challenge of challengeList ; let i =index">
+                    <div class="card-header"  [attr.id]="'heading_' + i" data-parent="#accordion" [attr.href]="'#collapse_'+i"  aria-expanded="false" [attr.aria-controls]="'collapse_' + i" >
+                      <h5 class="mb-0">
+                        <p class="collapsed challengetitle" style="cursor: pointer;padding-top:8px" id="tilepara" data-toggle="collapse" (click)=arrow() data-parent="#accordion" [attr.href]="'#collapse_'+i"  aria-expanded="false" [attr.aria-controls]="'collapse_' + i">
+                          {{challenge.title}}
+                          </p>
+
+                      <a (click) =arrow() >   <i [attr.href]="'#collapse_'+i" style="margin-top:-30px" data-parent="#accordion"   aria-expanded="false" [attr.aria-controls]="'collapse_' + i" *ngIf=!showArrow class="fa fa-angle-down fa-2x position pull-right"></i> </a>
+                      <a (click) =arrow() >
+                          <i [attr.href]="'#collapse_'+i" style="margin-top:-30px" (click)=arrow()  data-parent="#accordion"  aria-expanded="false" [attr.aria-controls]="'collapse_' + i" *ngIf=showArrow class="fa fa-angle-up  fa-2x position pull-right"></i></a>
+
+                        <!-- <a (click) =arrow() *ngIf=showArrow data-parent="#accordion" [attr.href]="'#collapse_'+i"  aria-expanded="false" [attr.aria-controls]="'collapse_' + i" ><i class="fa fa-angle-down fa-1x position"></i></a>
+                        <a (click) =arrow() *ngIf=!showArrow data-parent="#accordion" [attr.href]="'#collapse_'+i"  aria-expanded="false" [attr.aria-controls]="'collapse_' + i"><i class="fa fa-angle-up  fa-1x position"></i></a> -->
+                      </h5>
+                    </div>
+
+                <div [attr.id]="'collapse_'+i" class="accordion-body collapse "  [attr.aria-labelledby]="'heading_' + i">
+                  <div class="container card-block ">
+                    <div class="listitems" style="padding-left:10px ;font-size: 116%;">
+                        <div class="">
+						 <h5 style="margin-top:-17px">
+                                     <b class="textFont">Description</b>
+                                   </h5>
+                              <pre><code>{{challenge.description}}
+									</code></pre>
+                        </div>
+
+    <div class="" *ngIf="challenge?.tags">
+      <span  class="badge  badge-info pos" id="textFont">{{challenge.tags}}  </span> &nbsp;  <br>
+    </div>
+
+
+        <br>
+
+                            <div class="">
+                              <ul class="list" style="text-align:justify;">
+                                  <li *ngFor="let solution of challenge.solutionDocuemnt" class="list">
+
+                                    <h5 style="margin-top:-17px">
+                                     <b class="textFont">Solution</b>
+                                   </h5>
+
+                                    <pre><code>{{solution.description}}
+									</code></pre>
+                                    <div *ngIf="solution?.reference_link!==''">
+                                      <h5>
+                                        <b class="textFont">Reference URL</b>
+                                      </h5>
+                                          <p>  <a href={{solution.reference_link}} target="_blank">{{solution.reference_link}}</a></p>
+                      </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                        </div>
+                  </div>
+                </div>
+                </div>
+
+      </div>
+      </div>
+</div>
